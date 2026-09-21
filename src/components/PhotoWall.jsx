@@ -1,13 +1,54 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { Maximize2, X, ChevronLeft, ChevronRight, Image as ImageIcon, Box, Grid3X3, Sparkles } from 'lucide-react';
+import confetti from 'canvas-confetti';
+import { 
+  Maximize2, 
+  X, 
+  ChevronLeft, 
+  ChevronRight, 
+  Image as ImageIcon, 
+  Box, 
+  Grid3X3, 
+  Sparkles, 
+  Heart, 
+  Shuffle, 
+  Tag, 
+  Camera, 
+  Layers
+} from 'lucide-react';
 import { birthdayConfig } from '../config/birthday.config';
 import { soundFx } from '../hooks/useSoundEffects';
 import InfiniteGallery from '@/components/ui/3d-gallery-photography';
 
 export default function PhotoWall() {
+  const { gallery } = birthdayConfig;
   const [activePhotoIdx, setActivePhotoIdx] = useState(null);
   const [viewMode, setViewMode] = useState('3d'); // '3d' or 'grid'
-  const { gallery } = birthdayConfig;
+  const [selectedTag, setSelectedTag] = useState('All');
+  const [displayGallery, setDisplayGallery] = useState(gallery);
+  const [likes, setLikes] = useState({
+    'gal-1': 48,
+    'gal-2': 56,
+    'gal-3': 39,
+    'gal-4': 62,
+    'gal-5': 77,
+    'gal-6': 53,
+    'gal-7': 44,
+    'gal-8': 69,
+    'gal-9': 41,
+    'gal-10': 58
+  });
+
+  // Extract unique categories
+  const categories = useMemo(() => {
+    const tags = new Set(gallery.map(item => item.tag));
+    return ['All', ...Array.from(tags)];
+  }, [gallery]);
+
+  // Filter gallery items
+  const filteredGallery = useMemo(() => {
+    if (selectedTag === 'All') return displayGallery;
+    return displayGallery.filter(item => item.tag === selectedTag);
+  }, [displayGallery, selectedTag]);
 
   // Format images for InfiniteGallery
   const threeDImages = useMemo(() => {
@@ -43,6 +84,56 @@ export default function PhotoWall() {
   const handlePrev = () => {
     soundFx.playClick();
     setActivePhotoIdx((prev) => (prev - 1 + gallery.length) % gallery.length);
+  };
+
+  const handleShuffle = () => {
+    soundFx.playHarmonicChime();
+    const shuffled = [...displayGallery].sort(() => Math.random() - 0.5);
+    setDisplayGallery(shuffled);
+    confetti({
+      particleCount: 30,
+      spread: 60,
+      origin: { y: 0.7 },
+      colors: ['#C5A059', '#C4738B', '#FCECEF']
+    });
+  };
+
+  const handleLike = (id, e) => {
+    e.stopPropagation();
+    soundFx.playHarmonicChime();
+    setLikes(prev => ({
+      ...prev,
+      [id]: (prev[id] || 0) + 1
+    }));
+
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = (rect.left + rect.width / 2) / window.innerWidth;
+    const y = (rect.top + rect.height / 2) / window.innerHeight;
+
+    confetti({
+      particleCount: 20,
+      spread: 45,
+      origin: { x, y },
+      colors: ['#C4738B', '#FFD700', '#FCECEF']
+    });
+  };
+
+  // Card mouse movement 3D tilt effect
+  const handleMouseMove = (e) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const rotateX = ((y - centerY) / centerY) * -6;
+    const rotateY = ((x - centerX) / centerX) * 6;
+    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+  };
+
+  const handleMouseLeave = (e) => {
+    const card = e.currentTarget;
+    card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
   };
 
   return (
@@ -124,7 +215,7 @@ export default function PhotoWall() {
             }`}
           >
             <Grid3X3 size={14} className={viewMode === 'grid' ? 'text-[#C5A059]' : ''} />
-            Classic Photo Wall
+            Dynamic Scrapbook Grid
           </button>
         </div>
       </div>
@@ -163,51 +254,148 @@ export default function PhotoWall() {
         </div>
       )}
 
-      {/* Masonry-Style Grid View */}
+      {/* ================= DYNAMIC BENTO SCRAPBOOK GRID VIEW ================= */}
       {(viewMode === 'grid' || viewMode === '3d') && (
-        <div className="mt-8">
-          <div className="flex items-center justify-between mb-6 pb-2 border-b border-[#C5A059]/20">
-            <span className="font-mono text-xs uppercase tracking-widest text-[#726860]">
-              Full Archive Collection ({gallery.length} Exhibits)
-            </span>
-            <span className="font-mono text-[11px] text-[#C5A059]">
-              Tap any photo for full view
-            </span>
-          </div>
+        <div className="mt-8 animate-fade-in">
+          
+          {/* Controls Bar: Category Filters & Shuffle Button */}
+          <div className="flex flex-wrap items-center justify-between gap-4 mb-8 pb-4 border-b border-[#C5A059]/20">
+            
+            {/* Category Filter Pills */}
+            <div className="flex flex-wrap items-center gap-2">
+              {categories.map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => {
+                    soundFx.playClick();
+                    setSelectedTag(cat);
+                  }}
+                  className={`px-3.5 py-1.5 rounded-full text-xs font-mono tracking-wider transition-all duration-300 cursor-pointer ${
+                    selectedTag === cat
+                      ? 'bg-gradient-to-r from-[#C5A059] to-[#C4738B] text-white shadow-md scale-105 font-bold'
+                      : 'bg-white/85 text-[#726860] hover:bg-[#FAF6F0] border border-[#C5A059]/20 hover:border-[#C5A059]/40'
+                  }`}
+                >
+                  {cat === 'All' ? '✦ All Memories' : cat}
+                </button>
+              ))}
+            </div>
 
-          <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
-            {gallery.map((item, idx) => (
-              <div
-                key={idx}
-                onClick={() => handleOpenPhoto(idx)}
-                className="group relative rounded-2xl overflow-hidden bg-white border border-[#C5A059]/20 shadow-md hover:shadow-2xl transition-all duration-500 cursor-pointer break-inside-avoid hover:-translate-y-1"
+            {/* Interactive Shuffle Deck Button */}
+            <div className="flex items-center gap-3">
+              <span className="text-xs font-mono text-[#726860] hidden sm:inline">
+                {filteredGallery.length} Moments
+              </span>
+              <button
+                onClick={handleShuffle}
+                className="px-3.5 py-1.5 rounded-full bg-white/90 hover:bg-[#FAF6F0] border border-[#C5A059]/30 text-xs font-mono text-[#1E1B18] shadow-xs hover:shadow-md transition-all flex items-center gap-1.5 hover:scale-105 active:scale-95 cursor-pointer"
+                title="Shuffle photo order"
               >
-                <img
-                  src={item.src}
-                  alt={item.caption}
-                  className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-103"
-                  loading="lazy"
-                />
+                <Shuffle size={13} className="text-[#C5A059]" />
+                <span>Shuffle Deck</span>
+              </button>
+            </div>
 
-                {/* Hover overlay with caption */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5 text-white">
-                  <span className="text-[10px] font-mono uppercase tracking-widest text-[#E8D5C4] mb-1">
-                    {item.tag}
-                  </span>
-                  <p className="font-serif italic text-base leading-snug">
-                    "{item.caption}"
-                  </p>
-                  <span className="text-[10px] font-mono text-white/60 mt-2 inline-flex items-center gap-1">
-                    <Maximize2 size={10} /> Tap for Fullscreen
-                  </span>
-                </div>
-              </div>
-            ))}
           </div>
+
+          {/* Dynamic Bento Grid Layout with 3D Tilt Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {filteredGallery.map((item, idx) => {
+              const originalIdx = gallery.findIndex(g => g.src === item.src);
+              const isWide = item.featured && selectedTag === 'All';
+              const cardId = item.id || `gal-${originalIdx}`;
+              const cardLikes = likes[cardId] || 35;
+
+              return (
+                <div
+                  key={cardId}
+                  onClick={() => handleOpenPhoto(originalIdx >= 0 ? originalIdx : idx)}
+                  onMouseMove={handleMouseMove}
+                  onMouseLeave={handleMouseLeave}
+                  style={{ transition: 'transform 0.15s ease-out, box-shadow 0.3s ease-out' }}
+                  className={`group relative rounded-3xl bg-white p-4 border border-[#C5A059]/25 hover:border-[#C4738B]/50 shadow-md hover:shadow-2xl cursor-pointer flex flex-col justify-between overflow-hidden ${
+                    isWide ? 'sm:col-span-2 sm:flex-row gap-6' : ''
+                  }`}
+                >
+                  {/* Scrapbook washi tape top center */}
+                  <div className="washi-tape opacity-80 group-hover:opacity-100 transition-opacity" />
+
+                  {/* Photo Container with Proper ObjectPosition */}
+                  <div className={`relative rounded-2xl overflow-hidden bg-[#FAF6F0] shadow-inner ${
+                    isWide ? 'sm:w-3/5 aspect-16/10' : 'aspect-4/5'
+                  }`}>
+                    <img
+                      src={item.src}
+                      alt={item.caption}
+                      style={{ objectPosition: item.objectPosition || 'center 25%' }}
+                      className="w-full h-full object-cover filter brightness-[0.98] group-hover:scale-105 group-hover:brightness-100 transition-transform duration-700 ease-out"
+                      loading="lazy"
+                    />
+
+                    {/* Gradient Vignette on Hover */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                    {/* Top Left Tag Pill */}
+                    <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md text-[10px] font-mono text-[#F4E8D5] uppercase tracking-wider flex items-center gap-1 border border-white/20">
+                      <Tag size={10} className="text-[#C5A059]" />
+                      <span>{item.tag}</span>
+                    </div>
+
+                    {/* Top Right Enlarge Button */}
+                    <div className="absolute top-3 right-3 p-2 rounded-full bg-white/90 backdrop-blur-md text-[#1E1B18] opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-md hover:scale-110">
+                      <Maximize2 size={14} />
+                    </div>
+
+                    {/* Physical Scrapbook Sticker Badge */}
+                    {item.sticker && (
+                      <div className="absolute bottom-3 left-3 px-2.5 py-1 rounded-md bg-[#FAF6F0] text-[#1E1B18] text-[10px] font-mono font-bold tracking-wide shadow-lg border border-[#C5A059]/40 rotate-[-2deg] group-hover:rotate-0 transition-transform">
+                        {item.sticker}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Card Description & Micro-Interactions */}
+                  <div className={`flex flex-col justify-between pt-3.5 ${
+                    isWide ? 'sm:w-2/5 sm:pt-0 sm:py-2' : ''
+                  }`}>
+                    <div className="space-y-2">
+                      <div className="flex items-center justify-between text-[11px] font-mono text-[#726860]">
+                        <span>Exhibit #{originalIdx + 1}</span>
+                        <span className="text-[#C5A059] font-semibold">4K Archive</span>
+                      </div>
+                      
+                      <p className="font-serif italic text-base sm:text-lg text-[#1E1B18] leading-snug group-hover:text-[#C4738B] transition-colors">
+                        "{item.caption}"
+                      </p>
+                    </div>
+
+                    {/* Bottom Action Footer: Heart Reaction Button */}
+                    <div className="pt-4 mt-2 border-t border-[#C5A059]/15 flex items-center justify-between">
+                      <span className="text-[11px] font-mono text-[#726860]">
+                        Tap to enlarge
+                      </span>
+
+                      <button
+                        onClick={(e) => handleLike(cardId, e)}
+                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#FAF6F0] hover:bg-[#FCECEF] text-xs font-mono text-[#C4738B] transition-all hover:scale-105 border border-[#C4738B]/20 shadow-2xs"
+                        title="Send heart to this photo"
+                      >
+                        <Heart size={13} className="fill-[#C4738B]" />
+                        <span className="font-bold">{cardLikes}</span>
+                      </button>
+                    </div>
+
+                  </div>
+
+                </div>
+              );
+            })}
+          </div>
+
         </div>
       )}
 
-      {/* Fullscreen Lightbox Modal */}
+      {/* ================= FULLSCREEN LIGHTBOX MODAL ================= */}
       {activePhotoIdx !== null && (
         <div 
           className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md animate-fade-in"

@@ -67,7 +67,7 @@ export const birthdayConfig = {
       status: "Still under active investigation",
       threatLevel: "High Threat",
       evidenceImage: "/photos/funny/phone_thief.jpg",
-      objectPosition: "center 75%",
+      objectPosition: "center 30%",
       evidenceCaption: "Subject caught red-handed with unapproved devices.",
       sisterDefense: "\"I was only borrowing your hoodie because it smelled like laundry!\"",
       brotherIndictment: "Subject operates an unlicensed sibling contraband syndicate. 4 chargers currently missing.",
@@ -209,7 +209,7 @@ export const birthdayConfig = {
       title: "Looking out for each other",
       description: "We fought over tiny things, but whenever anyone else tried to bother either of us, we stood side by side.",
       photo: "/photos/memories/sky_trio.jpg",
-      objectPosition: "center 68%"
+      objectPosition: "center 38%"
     },
     {
       year: "Today",
@@ -239,7 +239,7 @@ export const birthdayConfig = {
       photo: "/photos/memories/sky_trio.jpg",
       note: "Mom definitely forced this photo.",
       rotation: "-3deg",
-      objectPosition: "center 68%"
+      objectPosition: "center 38%"
     },
     {
       photo: "/photos/funny/photo_47_fails.jpg",
@@ -299,7 +299,7 @@ export const birthdayConfig = {
     { photo: "/photos/memories/timeline_childhood.jpg", caption: "My first enemy.", objectPosition: "center 10%" },
     { photo: "/photos/hero/hero_duo.jpg", caption: "My permanent teammate.", objectPosition: "center 30%" },
     { photo: "/photos/funny/side_eye_attitude.jpg", caption: "My biggest headache.", objectPosition: "center 15%" },
-    { photo: "/photos/memories/sky_trio.jpg", caption: "My family.", objectPosition: "center 68%" },
+    { photo: "/photos/memories/sky_trio.jpg", caption: "My family.", objectPosition: "center 38%" },
     { photo: "/photos/memories/finger_heart.jpg", caption: "My sister.", objectPosition: "center 22%" }
   ],
   montageCloser: "Wouldn't trade you for anyone.",
@@ -335,16 +335,88 @@ export const birthdayConfig = {
 
   // Section 18: Full Gallery
   gallery: [
-    { src: "/photos/hero/hero_duo.jpg", caption: "Sunny days & genuine smiles with brother", tag: "Siblings" },
-    { src: "/photos/memories/timeline_childhood.jpg", caption: "Classic traditional silk saree & gold jewelry", tag: "Childhood" },
-    { src: "/photos/memories/beach_duo.jpg", caption: "Ocean breeze & beach day memories", tag: "Adventures" },
-    { src: "/photos/funny/side_eye_attitude.jpg", caption: "The signature side-eye that starts 90% of arguments", tag: "Candid" },
-    { src: "/photos/funny/photo_47_fails.jpg", caption: "Mid-laugh chaos while trying to pose", tag: "Funny" },
-    { src: "/photos/memories/finger_heart.jpg", caption: "Korean finger heart posing like a K-drama star", tag: "Vibes" },
-    { src: "/photos/memories/sky_trio.jpg", caption: "Sibling syndicate look-down perspective", tag: "Family" },
-    { src: "/photos/funny/phone_thief.jpg", caption: "Deep in focus (probably texting Mom)", tag: "Daily" },
-    { src: "/photos/funny/dramatic_pout.jpg", caption: "Black and white dramatic introspection", tag: "Portrait" },
-    { src: "/photos/memories/cafe_candid.jpg", caption: "2:15 PM cafe lunch & laughter", tag: "Moments" }
+    { 
+      id: "gal-1",
+      src: "/photos/hero/hero_duo.jpg", 
+      caption: "Sunny days & genuine smiles with brother", 
+      tag: "Siblings", 
+      objectPosition: "center 25%",
+      sticker: "BEST TEAMMATE ☀️",
+      featured: true
+    },
+    { 
+      id: "gal-2",
+      src: "/photos/memories/timeline_childhood.jpg", 
+      caption: "Classic traditional silk saree & gold jewelry", 
+      tag: "Childhood", 
+      objectPosition: "center 10%",
+      sticker: "ROYAL HERITAGE 👑" 
+    },
+    { 
+      id: "gal-3",
+      src: "/photos/memories/beach_duo.jpg", 
+      caption: "Ocean breeze & beach day memories", 
+      tag: "Adventures", 
+      objectPosition: "center 15%",
+      sticker: "OCEAN BREEZE 🌊" 
+    },
+    { 
+      id: "gal-4",
+      src: "/photos/funny/side_eye_attitude.jpg", 
+      caption: "The signature side-eye that starts 90% of arguments", 
+      tag: "Candid", 
+      objectPosition: "center 38%",
+      sticker: "LETHAL SIDE-EYE 👀" 
+    },
+    { 
+      id: "gal-5",
+      src: "/photos/funny/photo_47_fails.jpg", 
+      caption: "Mid-laugh chaos while trying to pose", 
+      tag: "Funny", 
+      objectPosition: "center 25%",
+      sticker: "CHAOS LEVEL 100 😂",
+      featured: true
+    },
+    { 
+      id: "gal-6",
+      src: "/photos/memories/finger_heart.jpg", 
+      caption: "Korean finger heart posing like a K-drama star", 
+      tag: "Vibes", 
+      objectPosition: "center 22%",
+      sticker: "K-DRAMA MOMENT 💖" 
+    },
+    { 
+      id: "gal-7",
+      src: "/photos/memories/sky_trio.jpg", 
+      caption: "Sibling syndicate look-down perspective", 
+      tag: "Family", 
+      objectPosition: "center 38%",
+      sticker: "LOOKING OUT 🌤️" 
+    },
+    { 
+      id: "gal-8",
+      src: "/photos/funny/phone_thief.jpg", 
+      caption: "Deep in focus (probably texting Mom)", 
+      tag: "Daily", 
+      objectPosition: "center 30%",
+      sticker: "PHONE THIEF 📱" 
+    },
+    { 
+      id: "gal-9",
+      src: "/photos/funny/dramatic_pout.jpg", 
+      caption: "Black and white dramatic introspection", 
+      tag: "Portrait", 
+      objectPosition: "center 30%",
+      sticker: "VOGUE DRAMA 🖤" 
+    },
+    { 
+      id: "gal-10",
+      src: "/photos/memories/cafe_candid.jpg", 
+      caption: "2:15 PM cafe lunch & laughter", 
+      tag: "Moments", 
+      objectPosition: "center 25%",
+      sticker: "SNACK INSPECTION 🍟" 
+    }
   ],
 
   // Section 19: The Beautiful & Gorgeous Chapter
