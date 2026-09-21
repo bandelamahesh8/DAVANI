@@ -14,6 +14,7 @@ import PhotoMontage from './components/PhotoMontage';
 import BirthdayFinale from './components/BirthdayFinale';
 import SecretButton from './components/SecretButton';
 import PhotoWall from './components/PhotoWall';
+import GorgeousTribute from './components/GorgeousTribute';
 import AudioPlayer from './components/AudioPlayer';
 import EasterEggs from './components/EasterEggs';
 import { useEasterEggs } from './hooks/useEasterEggs';
@@ -107,6 +108,9 @@ export default function App() {
 
           {/* Section 18: Living Memory Wall Gallery with Lightbox */}
           <PhotoWall />
+
+          {/* Section 19: The Beautiful & Gorgeous Chapter */}
+          <GorgeousTribute />
 
           {/* Footer */}
           <footer className="py-16 text-center text-[#726860] border-t border-[#C5A059]/20 relative z-10">

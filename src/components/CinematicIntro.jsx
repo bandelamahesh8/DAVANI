@@ -32,8 +32,41 @@ export default function CinematicIntro({ onNext }) {
 
       <div className="relative z-10 max-w-2xl mx-auto text-center space-y-8 flex flex-col items-center">
         
+        {/* BIG Left Margin GIF */}
+        <div className="hidden xl:flex flex-col items-center absolute -left-20 2xl:-left-36 top-1/4 z-20 animate-soft-float pointer-events-auto">
+          <img 
+            src="/gifs/hello-kitty.gif" 
+            alt="Hello Kitty Greeting" 
+            className="w-40 h-40 xl:w-48 xl:h-48 object-contain rounded-3xl drop-shadow-2xl hover:scale-115 transition-transform" 
+          />
+          <div className="mt-2 text-center bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-[#C5A059]/40 shadow-xl text-xs font-mono text-[#1E1B18] font-bold">
+            "Princess Davani 👑"
+          </div>
+        </div>
+
+        {/* BIG Right Margin GIF */}
+        <div className="hidden xl:flex flex-col items-center absolute -right-20 2xl:-right-36 top-1/4 z-20 animate-soft-float pointer-events-auto" style={{ animationDelay: '-3s' }}>
+          <img 
+            src="/gifs/cute-cha-pri.gif" 
+            alt="Childhood Joy" 
+            className="w-40 h-40 xl:w-48 xl:h-48 object-contain rounded-3xl drop-shadow-2xl hover:scale-115 transition-transform" 
+          />
+          <div className="mt-2 text-center bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-[#C4738B]/40 shadow-xl text-xs font-mono text-[#C4738B] font-bold">
+            "Innocence Era ✨"
+          </div>
+        </div>
+
         {/* Editorial Frame with the Portrait */}
         <div className="relative group">
+          {/* Cute Hello Kitty sticker accent */}
+          <div className="absolute -top-6 -left-6 z-20 pointer-events-none drop-shadow-md">
+            <img 
+              src="/gifs/hello-kitty.gif" 
+              alt="Cute Hello Kitty" 
+              className="w-16 h-16 object-contain"
+            />
+          </div>
+
           <div className="w-64 h-88 sm:w-72 sm:h-96 rounded-2xl overflow-hidden shadow-2xl shadow-[#C5A059]/20 border-2 border-white/80 p-1.5 bg-white/50 backdrop-blur-sm transition-transform duration-700 hover:scale-102">
             <img
               src={intro.heroImage}
@@ -42,7 +75,7 @@ export default function CinematicIntro({ onNext }) {
             />
           </div>
           {/* Subtle gold stamp */}
-          <div className="absolute -bottom-3 -right-3 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full border border-[#C5A059]/40 text-[11px] font-mono uppercase tracking-widest text-[#C5A059] shadow-md">
+          <div className="absolute -bottom-3 -right-3 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full border border-[#C5A059]/40 text-[11px] font-mono uppercase tracking-widest text-[#C5A059] shadow-md flex items-center gap-1">
             Archive • Innocence Era
           </div>
         </div>

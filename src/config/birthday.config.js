@@ -61,48 +61,78 @@ export const birthdayConfig = {
   complaints: [
     {
       id: "CASE #001",
-      title: "Stealing my things and pretending they're yours",
-      description: "Chargers, hoodies, snacks, and personal space systematically confiscated without a warrant.",
+      crimeCode: "FELONY-SNACK-HEIST",
+      title: "Stealing My Things & Pretending They're Yours",
+      description: "Chargers, oversized hoodies, snacks, and personal space systematically confiscated without a search warrant.",
       status: "Still under active investigation",
-      threatLevel: "High",
+      threatLevel: "High Threat",
       evidenceImage: "/photos/funny/phone_thief.jpg",
-      evidenceCaption: "Subject caught red-handed with unapproved devices."
+      objectPosition: "center 75%",
+      evidenceCaption: "Subject caught red-handed with unapproved devices.",
+      sisterDefense: "\"I was only borrowing your hoodie because it smelled like laundry!\"",
+      brotherIndictment: "Subject operates an unlicensed sibling contraband syndicate. 4 chargers currently missing.",
+      penalty: "Sentence: Must return at least 1 functional fast-charging USB-C cable.",
+      stamp: "100% GUILTY"
     },
     {
       id: "CASE #002",
-      title: "Starting arguments and somehow making ME apologize",
-      description: "Utilizes advanced psychological warfare to twist reality until I am apologizing for something that happened in 2017.",
+      crimeCode: "PSYCHOLOGICAL-WARFARE",
+      title: "Starting Arguments & Somehow Making ME Apologize",
+      description: "Utilizes advanced psychological manipulation to twist reality until I am apologizing for a dispute from 2017.",
       status: "Unresolved / Masterclass in gaslighting",
-      threatLevel: "Severe",
+      threatLevel: "Severe Hazard",
       evidenceImage: "/photos/funny/side_eye_attitude.jpg",
-      evidenceCaption: "Pre-argument facial expression detected at 20 paces."
+      objectPosition: "center 38%",
+      evidenceCaption: "Pre-argument lethal side-eye expression detected at 20 paces.",
+      sisterDefense: "\"You made me mad in a dream I had three weeks ago and you didn't even apologize!\"",
+      brotherIndictment: "Can turn a discussion about what to eat for dinner into a 45-minute philosophical trial.",
+      penalty: "Sentence: Must verbally admit that brother was right at least once in 2026.",
+      stamp: "GASLIGHTING PRO"
     },
     {
       id: "CASE #003",
-      title: "Taking 47 photos before accepting one",
-      description: "Refuses 46 flawless angles because 'my eyebrow looks 2% asymmetrical' while eating up 12GB of cloud storage.",
+      crimeCode: "CLOUD-STORAGE-MASSACRE",
+      title: "Taking 47 Photos Before Accepting One",
+      description: "Rejects 46 flawless angles because 'my eyebrow is 2% asymmetrical' while eating up 14.8 GB of brother's cloud storage.",
       status: "Storage Damage: Catastrophic",
-      threatLevel: "Critical",
+      threatLevel: "Critical Threat",
       evidenceImage: "/photos/funny/photo_47_fails.jpg",
-      evidenceCaption: "Exhibit A: Shot #39 where both eyes were closed."
+      objectPosition: "center center",
+      evidenceCaption: "Exhibit A: Shot #39 where both eyes were closed.",
+      sisterDefense: "\"The lighting in the first 46 was totally unflattering! Stand lower and tilt up!\"",
+      brotherIndictment: "Has forced brother to become an unpaid, full-time Vogue photographer against his will.",
+      penalty: "Sentence: 1-year ban on asking 'Take one candid picture of me looking away.'",
+      stamp: "ZERO REMORSE"
     },
     {
       id: "CASE #004",
-      title: "Eating food immediately after saying 'I don't want anything'",
-      description: "Claims to not be hungry when ordering. Proceeds to consume 65% of brother's french fries upon arrival.",
-      status: "Verdict: 100% Guilty",
+      crimeCode: "UNSOLICITED-DIETARY-THEFT",
+      title: "Eating Food Immediately After Saying 'I Don't Want Anything'",
+      description: "Claims to not be hungry when ordering. Proceeds to consume 68% of brother's French fries the millisecond they hit the table.",
+      status: "Verdict: Indisputable Sibling Guilt",
       threatLevel: "Permanent Hazard",
       evidenceImage: "/photos/memories/cafe_candid.jpg",
-      evidenceCaption: "Subject scoping the table for unattended sustenance."
+      objectPosition: "center 35%",
+      evidenceCaption: "Subject scoping the table for unattended sustenance.",
+      sisterDefense: "\"I said I didn't want my OWN food. I never said I wouldn't sample yours!\"",
+      brotherIndictment: "The French Fry Tax is enforced with ruthless precision. No fry is ever truly safe.",
+      penalty: "Sentence: Must buy Mahesh 2 large McDonald's fries with zero confiscation.",
+      stamp: "FRIES NEVER RETURNED"
     },
     {
       id: "CASE #005",
-      title: "Reporting classified information directly to Mom",
-      description: "Acts as a confidential informant to headquarters within 4.2 seconds of brother committing any minor infraction.",
-      status: "Threat Level: Extreme",
+      crimeCode: "HIGH-TREASON-MOM-CALL",
+      title: "Reporting Classified Intel Directly to Headquarters (Mom)",
+      description: "Acts as a confidential informant to Mom within 3.2 seconds of brother committing any minor infraction.",
+      status: "Threat Level: Defcon 1",
       threatLevel: "Defcon 1",
       evidenceImage: "/photos/funny/dramatic_pout.jpg",
-      evidenceCaption: "The look right before dialing Mom's number."
+      objectPosition: "center 35%",
+      evidenceCaption: "The dramatic facial expression right before dialing Mom's speed-dial.",
+      sisterDefense: "\"Mom deserved to know that you woke up at 1:00 PM on a Sunday!\"",
+      brotherIndictment: "The FBI wishes they had her surveillance apparatus and response time.",
+      penalty: "Sentence: Must revoke Mom's speed-dial shortcut for 72 consecutive hours.",
+      stamp: "MOM'S INFORMANT"
     }
   ],
 
@@ -179,7 +209,7 @@ export const birthdayConfig = {
       title: "Looking out for each other",
       description: "We fought over tiny things, but whenever anyone else tried to bother either of us, we stood side by side.",
       photo: "/photos/memories/sky_trio.jpg",
-      objectPosition: "center 82%"
+      objectPosition: "center 68%"
     },
     {
       year: "Today",
@@ -209,7 +239,7 @@ export const birthdayConfig = {
       photo: "/photos/memories/sky_trio.jpg",
       note: "Mom definitely forced this photo.",
       rotation: "-3deg",
-      objectPosition: "center 82%"
+      objectPosition: "center 68%"
     },
     {
       photo: "/photos/funny/photo_47_fails.jpg",
@@ -269,7 +299,7 @@ export const birthdayConfig = {
     { photo: "/photos/memories/timeline_childhood.jpg", caption: "My first enemy.", objectPosition: "center 10%" },
     { photo: "/photos/hero/hero_duo.jpg", caption: "My permanent teammate.", objectPosition: "center 30%" },
     { photo: "/photos/funny/side_eye_attitude.jpg", caption: "My biggest headache.", objectPosition: "center 15%" },
-    { photo: "/photos/memories/sky_trio.jpg", caption: "My family.", objectPosition: "center 82%" },
+    { photo: "/photos/memories/sky_trio.jpg", caption: "My family.", objectPosition: "center 68%" },
     { photo: "/photos/memories/finger_heart.jpg", caption: "My sister.", objectPosition: "center 22%" }
   ],
   montageCloser: "Wouldn't trade you for anyone.",
@@ -317,9 +347,95 @@ export const birthdayConfig = {
     { src: "/photos/memories/cafe_candid.jpg", caption: "2:15 PM cafe lunch & laughter", tag: "Moments" }
   ],
 
+  // Section 19: The Beautiful & Gorgeous Chapter
+  gorgeousTribute: {
+    badge: "✦ THE UNDENIABLE TRUTH • EFFORTLESSLY GORGEOUS ✦",
+    title: "Simply Beautiful • Forever Gorgeous",
+    subtitle: "Behind all the sibling roasts, stolen hoodies, and petty arguments... here is the real truth.",
+    brotherNote: "I tease you 365 days a year and complain about your drama, but at the end of the day, there's no denying the facts: You are radiant, elegant, and the most gorgeous sister anyone could ask for.",
+    cards: [
+      {
+        id: "royal-grace",
+        title: "The Royal Grace",
+        tag: "TRADITIONAL PERFECTION",
+        subtitle: "Pure elegance & timeless beauty",
+        photo: "/photos/gallery/IMG-20241102-WA0042.jpg",
+        objectPosition: "center 10%",
+        caption: "Traditional silk saree, temple gold jewelry, and that serene smile that turns every family function into your personal runway.",
+        stats: { aura: "Regal 👑", elegance: "100%", radiance: "Infinite ✨" }
+      },
+      {
+        id: "sunlit-radiance",
+        title: "Golden Hour Glow",
+        tag: "SUNLIT RADIANCE",
+        subtitle: "The 1000-watt smile",
+        photo: "/photos/gallery/IMG20241026131941.jpg",
+        objectPosition: "center 25%",
+        caption: "Blue skies, golden sun, and a genuine smile that can instantly brighten up any bad day. Effortless natural warmth.",
+        stats: { vibe: "Pure Sunshine ☀️", warmth: "10/10", energy: "Unstoppable 💫" }
+      },
+      {
+        id: "modern-chic",
+        title: "Modern Chic Icon",
+        tag: "VOGUE EDITORIAL",
+        subtitle: "Effortlessly photogenic",
+        photo: "/photos/gallery/Snapchat-437369713.jpg",
+        objectPosition: "center 30%",
+        caption: "Redefining style and camera presence without even trying. The reason why 90% of my cloud storage is your aesthetic shots.",
+        stats: { aesthetic: "Vogue Ready 💅", style: "Iconic", photogenic: "1000% 📸" }
+      },
+      {
+        id: "k-drama-charm",
+        title: "Sweetness & Starlight",
+        tag: "K-DRAMA ENERGY",
+        subtitle: "The Korean finger-heart classic",
+        photo: "/photos/gallery/IMG20241026134013.jpg",
+        objectPosition: "center 22%",
+        caption: "Cute poses, sparkling eyes, and the sweetest personality that everyone around you adores.",
+        stats: { cuteness: "Maximum 💖", charm: "Deadly", heart: "Priceless 💎" }
+      },
+      {
+        id: "pure-laughter",
+        title: "Pure Unscripted Joy",
+        tag: "NATURAL CHARM",
+        subtitle: "Candid happiness in motion",
+        photo: "/photos/gallery/IMG20241026134011.jpg",
+        objectPosition: "center 25%",
+        caption: "Mid-laugh, completely natural, and glowing with genuine happiness. The best version of you is when you're laughing freely.",
+        stats: { joy: "100%", naturalGlow: "Priceless", laughter: "Contagious ✨" }
+      },
+      {
+        id: "monochrome-poise",
+        title: "Cinematic Monochrome",
+        tag: "DRAMATIC POISE",
+        subtitle: "Classic Hollywood elegance",
+        photo: "/photos/gallery/IMG20241026133914.jpg",
+        objectPosition: "center 30%",
+        caption: "Striking black and white aesthetic. Shows that you have the poise and drama of a classic cinema heroine.",
+        stats: { poise: "10/10", depth: "Cinematic", presence: "Stunning 🖤" }
+      }
+    ],
+    compliments: [
+      "You bring effortless elegance to every single room you walk into.",
+      "Your smile is genuinely contagious — it can turn around anyone's worst day in seconds.",
+      "Traditional silk or modern casuals, you carry every single look with unmatched grace and poise.",
+      "You have an extraordinary eye for aesthetics, style, and natural beauty.",
+      "Behind all our sibling banter, you have the kindest, most generous heart in our family.",
+      "You make being smart, ambitious, and fiercely stylish look completely effortless.",
+      "You're not just gorgeous on the outside; your loyalty, warmth, and inner glow are what make you truly stunning.",
+      "Brother's Official Verdict: The most beautiful, gorgeous, and irreplaceable sister in the entire world. Always. ❤️"
+    ],
+    radarScore: [
+      { label: "Natural Grace & Elegance", value: "100%", desc: "Inherited from Mom & perfected" },
+      { label: "Radiant Smile Factor", value: "∞ / 10", desc: "Lights up the whole room" },
+      { label: "Photogenic Power", value: "1000%", desc: "Vogue ready in every lighting" },
+      { label: "Inner Beauty & Heart", value: "Priceless", desc: "Loyal, caring, and irreplaceable" }
+    ]
+  },
+
   // Background Audio
   audio: {
-    title: "Warm Acoustic Melody",
-    src: "/audio/background.mp3"
+    title: "చిన్న తుఫాను డావనీ 🎵",
+    src: "/audio/chinna_thuphaanu_davani.mp3"
   }
 };

@@ -38,6 +38,41 @@ export default function SystemDiagnostic({ onComplete }) {
 
   return (
     <section className="min-h-screen flex items-center justify-center px-4 py-16 relative z-10">
+      
+      {/* BIG Left Side GIF: Security Mochi Cat */}
+      <div className="hidden xl:flex flex-col items-center absolute left-8 2xl:left-24 top-1/2 -translate-y-1/2 z-20 animate-soft-float pointer-events-auto">
+        <div className="relative group cursor-pointer" onClick={() => soundFx.playDiagnosticBeep(false)}>
+          <img 
+            src="/gifs/mochi-cat-angry-cat.gif" 
+            alt="Security Officer Mochi Cat" 
+            className="w-40 h-40 xl:w-48 xl:h-48 2xl:w-56 2xl:h-56 object-contain rounded-3xl drop-shadow-2xl hover:scale-110 transition-transform" 
+          />
+          <div className="mt-3 text-center bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-[#C4738B]/40 shadow-xl text-xs font-mono text-[#C4738B] font-bold tracking-wide">
+            "SECURITY AUDIT: SISTER 😾"
+          </div>
+          <span className="text-[10px] font-mono text-[#726860] block text-center mt-1">
+            Suspicion Level: 100%
+          </span>
+        </div>
+      </div>
+
+      {/* BIG Right Side GIF: Sister Biometrics Kitten */}
+      <div className="hidden xl:flex flex-col items-center absolute right-8 2xl:right-24 top-1/2 -translate-y-1/2 z-20 animate-soft-float pointer-events-auto" style={{ animationDelay: '-3s' }}>
+        <div className="relative group cursor-pointer" onClick={() => soundFx.playDiagnosticBeep(true)}>
+          <img 
+            src="/gifs/cute-cat-cute-kittens.gif" 
+            alt="Biometric Scan Kitten" 
+            className="w-40 h-40 xl:w-48 xl:h-48 2xl:w-56 2xl:h-56 object-contain rounded-3xl drop-shadow-2xl hover:scale-110 transition-transform" 
+          />
+          <div className="mt-3 text-center bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-[#C5A059]/40 shadow-xl text-xs font-mono text-[#1E1B18] font-bold tracking-wide">
+            "ATTITUDE SCAN: 99.8% 💅"
+          </div>
+          <span className="text-[10px] font-mono text-[#726860] block text-center mt-1">
+            Davani Appala Detected
+          </span>
+        </div>
+      </div>
+
       <div className="max-w-xl w-full bg-white/80 backdrop-blur-xl border border-[#C5A059]/20 rounded-3xl p-6 sm:p-10 shadow-2xl shadow-[#C5A059]/10 relative overflow-hidden transition-all duration-500">
         
         {/* Apple-style window controls */}
@@ -110,6 +145,18 @@ export default function SystemDiagnostic({ onComplete }) {
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E08D79]/15 text-[#C4738B] text-xs font-mono font-medium">
               <AlertTriangle size={14} />
               {diagnostics.warningTitle}
+            </div>
+
+            {/* Funny cute frog running GIF */}
+            <div className="flex flex-col items-center justify-center my-1">
+              <img 
+                src="/gifs/frog-run.gif" 
+                alt="Evacuation Protocol" 
+                className="w-24 h-24 object-contain rounded-xl drop-shadow-md hover:scale-110 transition-transform" 
+              />
+              <span className="text-[10px] font-mono text-[#C4738B] mt-1 uppercase tracking-wider">
+                Emergency Protocol: Brother evacuating at maximum speed
+              </span>
             </div>
             
             <p className="text-sm font-sans text-[#726860] max-w-md mx-auto leading-relaxed">

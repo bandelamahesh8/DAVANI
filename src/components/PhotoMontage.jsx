@@ -37,6 +37,40 @@ export default function PhotoMontage() {
   return (
     <section className="py-28 px-4 sm:px-6 max-w-4xl mx-auto relative z-10">
       
+      {/* BIG Left Side GIF: Hello Kitty Glamour */}
+      <div className="hidden xl:flex flex-col items-center absolute -left-28 2xl:-left-44 top-1/3 z-20 animate-soft-float pointer-events-auto">
+        <div className="relative group cursor-pointer" onClick={() => soundFx.playCelebration()}>
+          <img 
+            src="/gifs/hello-kitty.gif" 
+            alt="Hello Kitty Sparkles" 
+            className="w-40 h-40 xl:w-48 xl:h-48 2xl:w-56 2xl:h-56 object-contain rounded-3xl drop-shadow-2xl hover:scale-110 transition-transform" 
+          />
+          <div className="mt-3 text-center bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-[#C5A059]/40 shadow-xl text-xs font-mono text-[#C5A059] font-bold tracking-wide">
+            "DAVANI APPALA ✨"
+          </div>
+          <span className="text-[10px] font-mono text-[#726860] block text-center mt-1">
+            Birthday Queen Energy
+          </span>
+        </div>
+      </div>
+
+      {/* BIG Right Side GIF: Happy Dance Party */}
+      <div className="hidden xl:flex flex-col items-center absolute -right-28 2xl:-right-44 top-1/3 z-20 animate-soft-float pointer-events-auto" style={{ animationDelay: '-2.5s' }}>
+        <div className="relative group cursor-pointer" onClick={() => soundFx.playHarmonicChime()}>
+          <img 
+            src="/gifs/happy-friday-dance.gif" 
+            alt="Sibling Celebration Dance" 
+            className="w-40 h-40 xl:w-48 xl:h-48 2xl:w-56 2xl:h-56 object-contain rounded-3xl drop-shadow-2xl hover:scale-110 transition-transform" 
+          />
+          <div className="mt-3 text-center bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-[#E08D79]/40 shadow-xl text-xs font-mono text-[#E08D79] font-bold tracking-wide">
+            "PARTY PROTOCOL 🕺"
+          </div>
+          <span className="text-[10px] font-mono text-[#726860] block text-center mt-1">
+            Surviving each other in style
+          </span>
+        </div>
+      </div>
+
       {/* Container */}
       <div className="flex flex-col items-center text-center space-y-10">
         

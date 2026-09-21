@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Mail, Heart, Sparkles } from 'lucide-react';
 import { birthdayConfig } from '../config/birthday.config';
 import { soundFx } from '../hooks/useSoundEffects';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 export default function EnvelopeLetter() {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,11 +11,49 @@ export default function EnvelopeLetter() {
   const handleOpen = () => {
     soundFx.playHarmonicChime();
     setIsOpen(true);
+    // Refresh ScrollTrigger so GSAP accounts for the newly unfolded letter height
+    setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 200);
   };
 
   return (
-    <section className="py-28 px-4 sm:px-6 max-w-4xl mx-auto relative z-10">
+    <section id="letter-section" className="py-28 px-4 sm:px-6 max-w-6xl mx-auto relative z-10">
       
+      {/* BIG Left Side GIF: Special Delivery Hello Kitty */}
+      <div className="hidden xl:flex flex-col items-center absolute -left-28 2xl:-left-44 top-36 z-20 animate-soft-float pointer-events-auto">
+        <div className="relative group cursor-pointer" onClick={() => soundFx.playCelebration()}>
+          <img 
+            src="/gifs/hello-kitty.gif" 
+            alt="Hello Kitty Special Delivery" 
+            className="w-40 h-40 xl:w-48 xl:h-48 2xl:w-56 2xl:h-56 object-contain rounded-3xl drop-shadow-2xl hover:scale-110 transition-transform" 
+          />
+          <div className="mt-3 text-center bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-[#C5A059]/40 shadow-xl text-xs font-mono text-[#C5A059] font-bold tracking-wide">
+            "SPECIAL DISPATCH 💌"
+          </div>
+          <span className="text-[10px] font-mono text-[#726860] block text-center mt-1">
+            Priority Brother Delivery
+          </span>
+        </div>
+      </div>
+
+      {/* BIG Right Side GIF: Emotional Kitten */}
+      <div className="hidden xl:flex flex-col items-center absolute -right-28 2xl:-right-44 top-48 z-20 animate-soft-float pointer-events-auto" style={{ animationDelay: '-3.5s' }}>
+        <div className="relative group cursor-pointer" onClick={() => soundFx.playHarmonicChime()}>
+          <img 
+            src="/gifs/cute-cat-cute-kittens.gif" 
+            alt="Kitten Reading Letter" 
+            className="w-40 h-40 xl:w-48 xl:h-48 2xl:w-56 2xl:h-56 object-contain rounded-3xl drop-shadow-2xl hover:scale-110 transition-transform" 
+          />
+          <div className="mt-3 text-center bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-[#C4738B]/40 shadow-xl text-xs font-mono text-[#C4738B] font-bold tracking-wide">
+            "HAPPY SISTER TEARS 🥺"
+          </div>
+          <span className="text-[10px] font-mono text-[#726860] block text-center mt-1">
+            Unfolded brotherly love
+          </span>
+        </div>
+      </div>
+
       {/* Section Pre-text */}
       <div className="text-center max-w-xl mx-auto mb-16 space-y-2">
         <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#C5A059]">
@@ -29,7 +68,7 @@ export default function EnvelopeLetter() {
       </div>
 
       {/* Envelope Container */}
-      <div className="relative max-w-2xl mx-auto perspective-1000 flex flex-col items-center">
+      <div className="relative max-w-3xl mx-auto perspective-1000 flex flex-col items-center">
         
         {!isOpen ? (
           /* Closed Envelope Card */
@@ -96,13 +135,25 @@ export default function EnvelopeLetter() {
             </div>
 
             {/* Letter Signoff */}
-            <div className="pt-8 border-t border-[#C5A059]/20 flex flex-col items-end space-y-1">
-              <span className="font-serif italic text-sm text-[#726860]">
-                {letter.signoff}
-              </span>
-              <span className="font-handwriting text-3xl sm:text-4xl text-[#1E1B18] font-bold">
-                {letter.signature}
-              </span>
+            <div className="pt-8 border-t border-[#C5A059]/20 flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <img 
+                  src="/gifs/goma-peach.gif" 
+                  alt="Brother & Sister Peach Goma" 
+                  className="w-16 h-16 sm:w-20 sm:h-20 object-contain rounded-xl drop-shadow-sm hover:scale-105 transition-transform" 
+                />
+                <span className="text-[11px] font-mono text-[#C4738B] italic hidden sm:inline-block">
+                  (Official Sibling Seal)
+                </span>
+              </div>
+              <div className="flex flex-col items-end space-y-1">
+                <span className="font-serif italic text-sm text-[#726860]">
+                  {letter.signoff}
+                </span>
+                <span className="font-handwriting text-3xl sm:text-4xl text-[#1E1B18] font-bold">
+                  {letter.signature}
+                </span>
+              </div>
             </div>
 
             {/* Delicate gold corner frames */}
@@ -114,6 +165,7 @@ export default function EnvelopeLetter() {
         )}
 
       </div>
+
     </section>
   );
 }

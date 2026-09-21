@@ -1,7 +1,49 @@
 @import "tailwindcss";
 
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}
+
 @layer base {
   :root {
+    --background: #FFFDF9;
+    --foreground: #1E1B18;
+    --card: #FFFFFF;
+    --card-foreground: #1E1B18;
+    --popover: #FFFFFF;
+    --popover-foreground: #1E1B18;
+    --primary: #C5A059;
+    --primary-foreground: #FFFFFF;
+    --secondary: #FAF6F0;
+    --secondary-foreground: #1E1B18;
+    --muted: #F4E8D5;
+    --muted-foreground: #726860;
+    --accent: #C4738B;
+    --accent-foreground: #FFFFFF;
+    --destructive: #E08D79;
+    --destructive-foreground: #FFFFFF;
+    --border: rgba(197, 160, 89, 0.25);
+    --input: rgba(197, 160, 89, 0.25);
+    --ring: #C5A059;
+
     --bg-primary: #FFFDF9;
     --bg-secondary: #FAF6F0;
     --bg-card: #FFFFFF;

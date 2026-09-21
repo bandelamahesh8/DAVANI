@@ -24,6 +24,41 @@ export default function SisterStatistics({ onOpenRoastMode }) {
 
   return (
     <section className="py-24 px-4 sm:px-6 max-w-4xl mx-auto relative z-10">
+      
+      {/* BIG Left Side GIF: Pouting Milk & Mocha */}
+      <div className="hidden xl:flex flex-col items-center absolute -left-28 2xl:-left-44 top-32 z-20 animate-soft-float pointer-events-auto">
+        <div className="relative group cursor-pointer" onClick={() => soundFx.playBuzzer()}>
+          <img 
+            src="/gifs/milkangry-milk-and-mocha.gif" 
+            alt="Pouting Sister Milk & Mocha" 
+            className="w-40 h-40 xl:w-48 xl:h-48 2xl:w-56 2xl:h-56 object-contain rounded-3xl drop-shadow-2xl hover:scale-110 transition-transform" 
+          />
+          <div className="mt-3 text-center bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-[#C4738B]/40 shadow-xl text-xs font-mono text-[#C4738B] font-bold tracking-wide">
+            "DISPUTING 3% PATIENCE! ☕"
+          </div>
+          <span className="text-[10px] font-mono text-[#726860] block text-center mt-1">
+            "I am extremely patient! 😾"
+          </span>
+        </div>
+      </div>
+
+      {/* BIG Right Side GIF: Teasing Cartoon */}
+      <div className="hidden xl:flex flex-col items-center absolute -right-28 2xl:-right-44 top-44 z-20 animate-soft-float pointer-events-auto" style={{ animationDelay: '-2.5s' }}>
+        <div className="relative group cursor-pointer" onClick={() => soundFx.playClick()}>
+          <img 
+            src="/gifs/cute-cha-pri.gif" 
+            alt="Teasing Brother Verdict" 
+            className="w-40 h-40 xl:w-48 xl:h-48 2xl:w-56 2xl:h-56 object-contain rounded-3xl drop-shadow-2xl hover:scale-110 transition-transform" 
+          />
+          <div className="mt-3 text-center bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-[#C5A059]/40 shadow-xl text-xs font-mono text-[#1E1B18] font-bold tracking-wide">
+            "AUDIT RESULT: 100% ACCURATE 📊"
+          </div>
+          <span className="text-[10px] font-mono text-[#726860] block text-center mt-1">
+            Scientific Brother Telemetry
+          </span>
+        </div>
+      </div>
+
       <div className="bg-white/90 backdrop-blur-xl rounded-3xl p-6 sm:p-12 border border-[#C5A059]/30 shadow-2xl shadow-[#C5A059]/10">
         
         {/* Header */}
@@ -79,7 +114,15 @@ export default function SisterStatistics({ onOpenRoastMode }) {
         </div>
 
         {/* Overall Rating Box */}
-        <div className="mt-12 pt-8 border-t border-[#1E1B18]/10 text-center space-y-3">
+        <div className="mt-12 pt-8 border-t border-[#1E1B18]/10 text-center space-y-3 relative">
+          <div className="flex justify-center mb-1">
+            <img 
+              src="/gifs/cute-cat-cute-kittens.gif" 
+              alt="Cute Sister Kitten" 
+              className="w-20 h-20 sm:w-24 sm:h-24 object-contain rounded-2xl drop-shadow-md hover:scale-105 transition-transform"
+            />
+          </div>
+
           <p className="text-xs uppercase font-mono tracking-widest text-[#726860]">
             Overall Sister Rating
           </p>

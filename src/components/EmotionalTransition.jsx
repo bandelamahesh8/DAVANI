@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { birthdayConfig } from '../config/birthday.config';
+import { soundFx } from '../hooks/useSoundEffects';
 
 export default function EmotionalTransition() {
   const [revealedCount, setRevealedCount] = useState(1);
@@ -17,6 +18,41 @@ export default function EmotionalTransition() {
 
   return (
     <section className="min-h-[85vh] flex items-center justify-center py-28 px-6 relative z-10">
+      
+      {/* BIG Left Side GIF: Sibling Warmth */}
+      <div className="hidden xl:flex flex-col items-center absolute left-12 2xl:left-32 top-1/2 -translate-y-1/2 z-20 animate-soft-float pointer-events-auto">
+        <div className="relative group cursor-pointer" onClick={() => soundFx.playHarmonicChime()}>
+          <img 
+            src="/gifs/peach-goma-peach-and-goma.gif" 
+            alt="Peach and Goma Warmth" 
+            className="w-40 h-40 xl:w-48 xl:h-48 2xl:w-56 2xl:h-56 object-contain rounded-3xl drop-shadow-2xl hover:scale-110 transition-transform" 
+          />
+          <div className="mt-3 text-center bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-[#C5A059]/40 shadow-xl text-xs font-mono text-[#C5A059] font-bold tracking-wide">
+            "SIBLING TENDERNESS 🌸"
+          </div>
+          <span className="text-[10px] font-mono text-[#726860] block text-center mt-1">
+            Rare heartfelt truths
+          </span>
+        </div>
+      </div>
+
+      {/* BIG Right Side GIF: Goma Peach Hug */}
+      <div className="hidden xl:flex flex-col items-center absolute right-12 2xl:right-32 top-1/2 -translate-y-1/2 z-20 animate-soft-float pointer-events-auto" style={{ animationDelay: '-3s' }}>
+        <div className="relative group cursor-pointer" onClick={() => soundFx.playHarmonicChime()}>
+          <img 
+            src="/gifs/goma-peach.gif" 
+            alt="Goma and Peach Hug" 
+            className="w-40 h-40 xl:w-48 xl:h-48 2xl:w-56 2xl:h-56 object-contain rounded-3xl drop-shadow-2xl hover:scale-110 transition-transform" 
+          />
+          <div className="mt-3 text-center bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-[#C4738B]/40 shadow-xl text-xs font-mono text-[#C4738B] font-bold tracking-wide">
+            "ALWAYS YOUR BROTHER 🤍"
+          </div>
+          <span className="text-[10px] font-mono text-[#726860] block text-center mt-1">
+            Always in your corner
+          </span>
+        </div>
+      </div>
+
       <div className="max-w-xl mx-auto text-center space-y-10">
         
         {/* Title */}
@@ -54,6 +90,20 @@ export default function EmotionalTransition() {
               </p>
             );
           })}
+
+          {/* Sweet Peach & Goma sibling poke sticker */}
+          {revealedCount >= unspokenTruths.length && (
+            <div className="pt-6 animate-fade-in flex flex-col items-center gap-2">
+              <img 
+                src="/gifs/peach-goma-peach-and-goma.gif" 
+                alt="Peach and Goma Sibling Tease" 
+                className="w-16 h-16 object-contain rounded-xl drop-shadow-sm hover:scale-110 transition-transform" 
+              />
+              <span className="text-[10px] font-mono text-[#C5A059] uppercase tracking-widest">
+                Scroll down for the letter
+              </span>
+            </div>
+          )}
         </div>
 
       </div>

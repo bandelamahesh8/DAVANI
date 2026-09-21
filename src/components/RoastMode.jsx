@@ -54,11 +54,23 @@ export default function RoastMode({ isOpen, onClose }) {
 
         {/* Top Header bar */}
         <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-6 relative z-10">
-          <div className="flex items-center gap-2 text-[#E08D79]">
-            <Flame size={18} className="animate-bounce" />
-            <span className="font-mono text-xs uppercase tracking-widest font-bold">
-              Sibling Roast Mode Active
-            </span>
+          <div className="flex items-center gap-2.5 text-[#E08D79]">
+            <img 
+              src="/gifs/milkangry-milk-and-mocha.gif" 
+              alt="Angry Sister Reaction" 
+              className="w-10 h-10 object-contain rounded-lg drop-shadow" 
+            />
+            <div>
+              <div className="flex items-center gap-1.5">
+                <Flame size={14} className="animate-bounce" />
+                <span className="font-mono text-xs uppercase tracking-widest font-bold">
+                  Sibling Roast Mode Active
+                </span>
+              </div>
+              <span className="text-[10px] font-mono text-white/50 block">
+                Live Sister Attitude: 100% Salt
+              </span>
+            </div>
           </div>
 
           <button
@@ -123,9 +135,13 @@ export default function RoastMode({ isOpen, onClose }) {
           </div>
         ) : (
           /* Completion State */
-          <div className="text-center py-8 space-y-6 relative z-10 animate-fade-in">
-            <div className="w-16 h-16 rounded-full bg-[#8FA89B]/20 border border-[#8FA89B]/40 flex items-center justify-center mx-auto text-[#8FA89B]">
-              <CheckCheck size={32} />
+          <div className="text-center py-8 space-y-5 relative z-10 animate-fade-in">
+            <div className="flex justify-center">
+              <img 
+                src="/gifs/mikonay.gif" 
+                alt="Roast Survival" 
+                className="w-20 h-20 object-contain rounded-xl drop-shadow-md animate-bounce" 
+              />
             </div>
 
             <div className="space-y-2">

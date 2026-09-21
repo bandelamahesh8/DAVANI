@@ -115,6 +115,79 @@ class SoundSynthesizer {
       console.warn('Audio fanfare error:', e);
     }
   }
+
+  // Sibling Courtroom Gavel Slam
+  playGavel() {
+    try {
+      this.init();
+      if (!this.ctx) return;
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+      osc.type = 'sawtooth';
+      osc.frequency.setValueAtTime(140, this.ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(30, this.ctx.currentTime + 0.2);
+
+      gain.gain.setValueAtTime(0.25, this.ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.25);
+
+      osc.connect(gain);
+      gain.connect(this.ctx.destination);
+      osc.start();
+      osc.stop(this.ctx.currentTime + 0.25);
+    } catch (e) {
+      console.warn('Audio gavel error:', e);
+    }
+  }
+
+  // Sibling Courtroom Buzzer
+  playBuzzer() {
+    try {
+      this.init();
+      if (!this.ctx) return;
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+      osc.type = 'sawtooth';
+      osc.frequency.setValueAtTime(120, this.ctx.currentTime);
+
+      gain.gain.setValueAtTime(0.15, this.ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.01, this.ctx.currentTime + 0.3);
+
+      osc.connect(gain);
+      gain.connect(this.ctx.destination);
+      osc.start();
+      osc.stop(this.ctx.currentTime + 0.3);
+    } catch (e) {
+      console.warn('Audio buzzer error:', e);
+    }
+  }
+
+  // Mom Phone Ring
+  playPhoneRing() {
+    try {
+      this.init();
+      if (!this.ctx) return;
+      [0, 0.2].forEach(offset => {
+        const osc1 = this.ctx.createOscillator();
+        const osc2 = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        osc1.type = 'sine';
+        osc2.type = 'sine';
+        osc1.frequency.setValueAtTime(440, this.ctx.currentTime + offset);
+        osc2.frequency.setValueAtTime(480, this.ctx.currentTime + offset);
+        gain.gain.setValueAtTime(0.08, this.ctx.currentTime + offset);
+        gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + offset + 0.15);
+        osc1.connect(gain);
+        osc2.connect(gain);
+        gain.connect(this.ctx.destination);
+        osc1.start(this.ctx.currentTime + offset);
+        osc2.start(this.ctx.currentTime + offset);
+        osc1.stop(this.ctx.currentTime + offset + 0.15);
+        osc2.stop(this.ctx.currentTime + offset + 0.15);
+      });
+    } catch (e) {
+      console.warn('Audio phone ring error:', e);
+    }
+  }
 }
 
 export const soundFx = new SoundSynthesizer();
