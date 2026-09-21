@@ -21,16 +21,18 @@ export default function OpeningExperience({ onComplete }) {
   const [autoCountdown, setAutoCountdown] = useState(3);
   const audioRef = useRef(null);
 
-  // Automatically play opening sister meme sound on mount
+  // Automatically play opening sister meme sound on mount without muting
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
 
+    audio.muted = false;
     audio.volume = 0.85;
 
-    const startPlayback = () => {
-      // Direct unmuted playback attempt
+    const attemptPlay = () => {
+      if (!audio) return;
       audio.muted = false;
+      audio.volume = 0.85;
       const playPromise = audio.play();
       if (playPromise !== undefined) {
         playPromise
@@ -38,41 +40,33 @@ export default function OpeningExperience({ onComplete }) {
             setAudioPlaying(true);
           })
           .catch((err) => {
-            console.log('Autoplay unmuted blocked by browser policy, starting muted stream:', err);
-            // Fallback: start muted so track buffer runs immediately
-            audio.muted = true;
-            audio.play()
-              .then(() => {
-                setAudioPlaying(true);
-              })
-              .catch(() => {});
+            console.log('Autoplay waiting for audio permission:', err);
           });
-      }
-    };
-
-    startPlayback();
-
-    // On ANY user presence (mouse movement, cursor hover, touch, key, click, scroll), instantly unmute
-    const unmuteSound = () => {
-      if (audio) {
-        audio.muted = false;
-        audio.volume = 0.85;
-        if (audio.paused) {
-          audio.play().catch(() => {});
-        }
-        setAudioPlaying(true);
       }
       soundFx.init();
     };
 
-    const userEvents = ['pointerdown', 'pointermove', 'mousemove', 'click', 'touchstart', 'touchend', 'keydown', 'wheel', 'scroll', 'focus'];
-    userEvents.forEach(evt => {
-      window.addEventListener(evt, unmuteSound, { passive: true });
+    // Try immediately on mount
+    attemptPlay();
+
+    // Also trigger as soon as browser buffers enough audio data
+    audio.addEventListener('canplay', attemptPlay);
+    audio.addEventListener('loadeddata', attemptPlay);
+
+    // Also trigger on first mouse entry, movement, hover, touch or key
+    const passiveEvents = [
+      'mouseenter', 'mousemove', 'pointermove', 'pointerdown', 
+      'click', 'touchstart', 'touchend', 'keydown', 'wheel', 'scroll', 'focus'
+    ];
+    passiveEvents.forEach(evt => {
+      window.addEventListener(evt, attemptPlay, { passive: true });
     });
 
     return () => {
-      userEvents.forEach(evt => {
-        window.removeEventListener(evt, unmuteSound);
+      audio.removeEventListener('canplay', attemptPlay);
+      audio.removeEventListener('loadeddata', attemptPlay);
+      passiveEvents.forEach(evt => {
+        window.removeEventListener(evt, attemptPlay);
       });
     };
   }, []);
