@@ -162,28 +162,32 @@ export const birthdayConfig = {
       tag: "Small & Sweet",
       title: "When you were innocent",
       description: "Dressed in silk and flowers, smiling politely for the camera. We really thought you were going to stay that quiet.",
-      photo: "/photos/memories/timeline_childhood.jpg"
+      photo: "/photos/memories/timeline_childhood.jpg",
+      objectPosition: "center 10%"
     },
     {
       year: "Growing Up",
       tag: "Unbreakable Bond",
       title: "Teammates against the world",
       description: "Through every school year, every exam panic, and every family function where we made fun of everyone together.",
-      photo: "/photos/memories/beach_duo.jpg"
+      photo: "/photos/memories/beach_duo.jpg",
+      objectPosition: "center 15%"
     },
     {
       year: "The Syndicate",
       tag: "Family Chaos",
       title: "Looking out for each other",
       description: "We fought over tiny things, but whenever anyone else tried to bother either of us, we stood side by side.",
-      photo: "/photos/memories/sky_trio.jpg"
+      photo: "/photos/memories/sky_trio.jpg",
+      objectPosition: "center 82%"
     },
     {
       year: "Today",
       tag: "Always & Forever",
       title: "The person you've become",
       description: "Stronger, smarter, more resilient, and still the one person who knows how to drive me crazy and make me proud at the exact same time.",
-      photo: "/photos/memories/finger_heart.jpg"
+      photo: "/photos/memories/finger_heart.jpg",
+      objectPosition: "center 22%"
     }
   ],
 
@@ -192,32 +196,38 @@ export const birthdayConfig = {
     {
       photo: "/photos/memories/timeline_childhood.jpg",
       note: "Rare photographic proof she was once calm.",
-      rotation: "-2deg"
+      rotation: "-2deg",
+      objectPosition: "center 10%"
     },
     {
       photo: "/photos/memories/beach_duo.jpg",
       note: "Probably 5 minutes before an argument.",
-      rotation: "3deg"
+      rotation: "3deg",
+      objectPosition: "center 15%"
     },
     {
       photo: "/photos/memories/sky_trio.jpg",
       note: "Mom definitely forced this photo.",
-      rotation: "-3deg"
+      rotation: "-3deg",
+      objectPosition: "center 82%"
     },
     {
       photo: "/photos/funny/photo_47_fails.jpg",
       note: "Certified chaos in a single frame.",
-      rotation: "2deg"
+      rotation: "2deg",
+      objectPosition: "center 30%"
     },
     {
       photo: "/photos/memories/cafe_candid.jpg",
       note: "Plotting which of my fries to take.",
-      rotation: "-1deg"
+      rotation: "-1deg",
+      objectPosition: "center 25%"
     },
     {
       photo: "/photos/memories/finger_heart.jpg",
       note: "Rare moment of sibling harmony.",
-      rotation: "2.5deg"
+      rotation: "2.5deg",
+      objectPosition: "center 22%"
     }
   ],
 
@@ -256,11 +266,11 @@ export const birthdayConfig = {
 
   // Section 15: Cinematic Photo Montage
   montage: [
-    { photo: "/photos/memories/timeline_childhood.jpg", caption: "My first enemy." },
-    { photo: "/photos/hero/hero_duo.jpg", caption: "My permanent teammate." },
-    { photo: "/photos/funny/side_eye_attitude.jpg", caption: "My biggest headache." },
-    { photo: "/photos/memories/sky_trio.jpg", caption: "My family." },
-    { photo: "/photos/memories/finger_heart.jpg", caption: "My sister." }
+    { photo: "/photos/memories/timeline_childhood.jpg", caption: "My first enemy.", objectPosition: "center 10%" },
+    { photo: "/photos/hero/hero_duo.jpg", caption: "My permanent teammate.", objectPosition: "center 30%" },
+    { photo: "/photos/funny/side_eye_attitude.jpg", caption: "My biggest headache.", objectPosition: "center 15%" },
+    { photo: "/photos/memories/sky_trio.jpg", caption: "My family.", objectPosition: "center 82%" },
+    { photo: "/photos/memories/finger_heart.jpg", caption: "My sister.", objectPosition: "center 22%" }
   ],
   montageCloser: "Wouldn't trade you for anyone.",
   montageJoke: "...mostly.",

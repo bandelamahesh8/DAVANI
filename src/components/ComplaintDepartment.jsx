@@ -56,13 +56,38 @@ export default function ComplaintDepartment() {
                 {item.title}
               </h3>
 
-              <p className="text-xs sm:text-sm text-[#726860] leading-relaxed mb-4">
+              <p className="text-xs sm:text-sm text-[#726860] leading-relaxed mb-3">
                 {item.description}
               </p>
+
+              {/* Smooth Evidence Photo Preview on Card Hover */}
+              <div 
+                onClick={() => handleOpenEvidence(item)}
+                className="relative overflow-hidden rounded-xl bg-[#FAF6F0] border border-[#C5A059]/25 transition-all duration-500 ease-out h-32 sm:h-36 group-hover:h-48 group-hover:shadow-lg cursor-pointer mb-4"
+              >
+                <img
+                  src={item.evidenceImage}
+                  alt={item.title}
+                  className="w-full h-full object-cover object-top filter brightness-[0.96] contrast-[1.02] transition-all duration-700 ease-out group-hover:scale-105 group-hover:brightness-100"
+                  loading="lazy"
+                />
+                
+                {/* Evidence preview watermark tag */}
+                <div className="absolute top-2 left-2 px-2 py-0.5 rounded bg-black/60 backdrop-blur-md text-[10px] font-mono text-[#F4E8D5] uppercase tracking-wider flex items-center gap-1.5 transition-transform duration-300 group-hover:scale-105">
+                  <Eye size={10} className="text-[#C5A059]" />
+                  <span>Evidence File</span>
+                </div>
+
+                {/* Evidence caption bar on hover */}
+                <div className="absolute inset-x-0 bottom-0 p-2.5 bg-gradient-to-t from-black/85 via-black/40 to-transparent text-white text-[11px] font-serif italic transition-opacity duration-300 opacity-90 group-hover:opacity-100 flex items-center justify-between">
+                  <span className="truncate max-w-[80%]">"{item.evidenceCaption}"</span>
+                  <span className="text-[10px] font-mono text-[#C5A059] opacity-0 group-hover:opacity-100 transition-opacity">Enlarge ↗</span>
+                </div>
+              </div>
             </div>
 
             {/* Bottom status & action */}
-            <div className="pt-4 border-t border-[#1E1B18]/5 flex items-center justify-between">
+            <div className="pt-3 border-t border-[#1E1B18]/5 flex items-center justify-between">
               <div>
                 <p className="text-[10px] uppercase font-mono text-[#726860]/70">Status</p>
                 <p className="text-xs font-mono font-medium text-[#C4738B]">{item.status}</p>
@@ -70,10 +95,10 @@ export default function ComplaintDepartment() {
 
               <button
                 onClick={() => handleOpenEvidence(item)}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#FAF6F0] hover:bg-[#C5A059] hover:text-white text-xs font-mono text-[#1E1B18] transition-colors border border-[#C5A059]/30 cursor-pointer"
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#FAF6F0] hover:bg-[#C5A059] hover:text-white text-xs font-mono text-[#1E1B18] transition-all duration-300 border border-[#C5A059]/30 hover:scale-105 active:scale-95 cursor-pointer shadow-sm"
               >
                 <Eye size={12} />
-                Evidence
+                Full Case File
               </button>
             </div>
 

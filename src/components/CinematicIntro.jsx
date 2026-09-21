@@ -34,11 +34,11 @@ export default function CinematicIntro({ onNext }) {
         
         {/* Editorial Frame with the Portrait */}
         <div className="relative group">
-          <div className="w-56 h-72 sm:w-64 sm:h-80 rounded-2xl overflow-hidden shadow-2xl shadow-[#C5A059]/20 border-2 border-white/80 p-1.5 bg-white/50 backdrop-blur-sm transition-transform duration-700 hover:scale-102">
+          <div className="w-64 h-88 sm:w-72 sm:h-96 rounded-2xl overflow-hidden shadow-2xl shadow-[#C5A059]/20 border-2 border-white/80 p-1.5 bg-white/50 backdrop-blur-sm transition-transform duration-700 hover:scale-102">
             <img
               src={intro.heroImage}
               alt="Sweet and innocent Davani"
-              className="w-full h-full object-cover rounded-xl transition-all duration-1000 group-hover:scale-105"
+              className="w-full h-full object-cover object-top rounded-xl transition-all duration-1000 group-hover:scale-105"
             />
           </div>
           {/* Subtle gold stamp */}

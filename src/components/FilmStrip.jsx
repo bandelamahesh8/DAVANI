@@ -110,6 +110,7 @@ export default function FilmStrip() {
                   src={item.photo}
                   alt={item.note}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 pointer-events-none"
+                  style={{ objectPosition: item.objectPosition || 'center top' }}
                   loading="lazy"
                 />
               </div>

@@ -52,6 +52,7 @@ export default function PhotoMontage() {
             src={currentItem.photo}
             alt={currentItem.caption}
             className="w-full h-full object-cover animate-fade-in transition-all duration-1000"
+            style={{ objectPosition: currentItem.objectPosition || 'center top' }}
           />
 
           {/* Minimal cinematic caption overlay */}

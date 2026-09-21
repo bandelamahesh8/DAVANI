@@ -41,11 +41,12 @@ export default function MemoryTimeline() {
                 {/* Photo Column */}
                 <div className="w-full md:w-1/2 flex justify-center">
                   <div className="relative group max-w-sm w-full">
-                    <div className="relative aspect-4/5 rounded-2xl overflow-hidden border-2 border-white/80 bg-white shadow-xl shadow-[#1E1B18]/5 transition-all duration-700 group-hover:scale-102 group-hover:shadow-2xl">
+                    <div className="relative aspect-[3/4] sm:aspect-4/5 rounded-2xl overflow-hidden border-2 border-white/80 bg-white shadow-xl shadow-[#1E1B18]/5 transition-all duration-700 group-hover:scale-102 group-hover:shadow-2xl">
                       <img
                         src={item.photo}
                         alt={item.title}
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        style={{ objectPosition: item.objectPosition || 'center top' }}
                         loading="lazy"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
